@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.equipomiguelyluis.organizador.models.Recordatorio;
@@ -44,6 +45,15 @@ public class RecordatorioRecyclerViewAdapter extends RecyclerView.Adapter<Record
         holder.mFechaView.setText(dateFormat.format(mValues.get(position).fecha));
         holder.mCategoriaView.setText(mValues.get(position).classificacion.nombre);
         holder.mCheckbox.setActivated(mValues.get(position).revisada);
+        holder.mCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
+
+                mValues.get(position).revisada = isChecked;
+            }
+        });
     }
 
     @Override

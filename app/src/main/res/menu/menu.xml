@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/add_recordatorio"
+        android:icon="@drawable/ic_baseline_add_24"
+        android:title="Nuevo recordatorio"
+        app:showAsAction="ifRoom"
+        >
+    </item>
+    <item android:id="@+id/a"
+        android:title="Clasificaciones"
+        app:showAsAction="never"
+        >
+        <menu>
+
+            <item
+                android:id="@+id/add_clasificacion"
+                android:title="Agregar clasificación"
+                ></item>
+            <item
+                android:id="@+id/view_clasificaciones"
+                android:title="Ver clasificaciones"
+                ></item>
+        </menu>
+    </item>
+</menu>

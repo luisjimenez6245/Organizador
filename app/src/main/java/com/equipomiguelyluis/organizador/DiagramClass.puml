@@ -1,0 +1,98 @@
+@startuml
+class com.equipomiguelyluis.organizador.views.recordatorio.RecordatorioFragment {
+- {static} String ARG_COLUMN_COUNT
+- int mColumnCount
++ {static} RecordatorioFragment newInstance(int)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.equipomiguelyluis.organizador.views.clasificacion.ClasificacionRecyclerViewAdapter {
+- List<Classificacion> mValues
++ ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(ViewHolder,int)
++ int getItemCount()
+}
+class com.equipomiguelyluis.organizador.views.clasificacion.ClasificacionRecyclerViewAdapter.ViewHolder {
++ View mView
++ TextView mContenidoView
++ Classificacion mItem
++ String toString()
+}
+class com.equipomiguelyluis.organizador.models.utils.Modelo {
++ int id
+}
+class com.equipomiguelyluis.organizador.views.ClasificacionForm {
+# void onCreate(Bundle)
+}
+class com.equipomiguelyluis.organizador.views.clasificacion.ClasificacionFragment {
+- {static} String ARG_COLUMN_COUNT
+- int mColumnCount
++ {static} ClasificacionFragment newInstance(int)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.equipomiguelyluis.organizador.models.dummy.DummyContent {
++ {static} List<Recordatorio> ITEMS
++ {static} List<Classificacion> ITEMS_CLASSIFICACION
++ {static} List<TipoNotificacion> ITEMS_TIPO_NOTIFICACION
++ {static} Map<String,Recordatorio> ITEM_MAP
+- {static} int COUNT
+- {static} void addRecordatorio(Recordatorio)
+- {static} String makeDetails(int)
+}
+class com.equipomiguelyluis.organizador.MainActivity {
+# void onCreate(Bundle)
++ boolean onCreateOptionsMenu(Menu)
++ boolean onOptionsItemSelected(MenuItem)
+}
+class com.equipomiguelyluis.organizador.models.TipoNotificacion {
++ String nombre
++ boolean seMandaNotificacion
++ int minutos
+}
+class com.equipomiguelyluis.organizador.views.RecordatorioForm {
+# void onCreate(Bundle)
+}
+class com.equipomiguelyluis.organizador.models.Classificacion {
++ String nombre
+}
+class com.equipomiguelyluis.organizador.models.Recordatorio {
++ Date fecha
++ String contenido
++ Classificacion classificacion
++ Boolean revisada
++ TipoNotificacion tipo
+}
+class com.equipomiguelyluis.organizador.views.recordatorio.RecordatorioRecyclerViewAdapter {
+- List<Recordatorio> mValues
+- DateFormat dateFormat
++ ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(ViewHolder,int)
++ int getItemCount()
+}
+class com.equipomiguelyluis.organizador.views.recordatorio.RecordatorioRecyclerViewAdapter.ViewHolder {
++ View mView
++ CheckBox mCheckbox
++ TextView mContenidoView
++ TextView mFechaView
++ TextView mCategoriaView
++ Recordatorio mItem
++ String toString()
+}
+
+
+androidx.fragment.app.Fragment <|-- com.equipomiguelyluis.organizador.views.recordatorio.RecordatorioFragment
+com.equipomiguelyluis.organizador.views.clasificacion.Adapter <|-- com.equipomiguelyluis.organizador.views.clasificacion.ClasificacionRecyclerViewAdapter
+com.equipomiguelyluis.organizador.views.clasificacion.ClasificacionRecyclerViewAdapter +.. com.equipomiguelyluis.organizador.views.clasificacion.ClasificacionRecyclerViewAdapter.ViewHolder
+com.equipomiguelyluis.organizador.views.clasificacion.ViewHolder <|-- com.equipomiguelyluis.organizador.views.clasificacion.ClasificacionRecyclerViewAdapter.ViewHolder
+androidx.appcompat.app.AppCompatActivity <|-- com.equipomiguelyluis.organizador.views.ClasificacionForm
+androidx.fragment.app.Fragment <|-- com.equipomiguelyluis.organizador.views.clasificacion.ClasificacionFragment
+androidx.appcompat.app.AppCompatActivity <|-- com.equipomiguelyluis.organizador.MainActivity
+com.equipomiguelyluis.organizador.models.utils.Modelo <|-- com.equipomiguelyluis.organizador.models.TipoNotificacion
+androidx.appcompat.app.AppCompatActivity <|-- com.equipomiguelyluis.organizador.views.RecordatorioForm
+com.equipomiguelyluis.organizador.models.utils.Modelo <|-- com.equipomiguelyluis.organizador.models.Classificacion
+com.equipomiguelyluis.organizador.models.utils.Modelo <|-- com.equipomiguelyluis.organizador.models.Recordatorio
+com.equipomiguelyluis.organizador.views.recordatorio.Adapter <|-- com.equipomiguelyluis.organizador.views.recordatorio.RecordatorioRecyclerViewAdapter
+com.equipomiguelyluis.organizador.views.recordatorio.RecordatorioRecyclerViewAdapter +.. com.equipomiguelyluis.organizador.views.recordatorio.RecordatorioRecyclerViewAdapter.ViewHolder
+com.equipomiguelyluis.organizador.views.recordatorio.ViewHolder <|-- com.equipomiguelyluis.organizador.views.recordatorio.RecordatorioRecyclerViewAdapter.ViewHolder
+@enduml

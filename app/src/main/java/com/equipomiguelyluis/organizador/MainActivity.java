@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.equipomiguelyluis.organizador.views.ClasificacionForm;
 import com.equipomiguelyluis.organizador.views.RecordatorioForm;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,20 +34,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         Toast toast = null;
+        Intent  intent = null;
         switch (item.getItemId()){
             case R.id.add_clasificacion:
                 toast = Toast.makeText(this, "Crear Clasificacion", Toast.LENGTH_SHORT);
-
-
+                intent = new Intent(this, ClasificacionForm.class);
                 break;
             case R.id.add_recordatorio:
                 toast = Toast.makeText(this, "Crear Recordatorio", Toast.LENGTH_SHORT);
-                Intent intent = new Intent(this, RecordatorioForm.class);
-                startActivity(intent);
+                intent = new Intent(this, RecordatorioForm.class);
                 break;
         }
         if(toast != null){
             toast.show();
+        }
+        if(intent != null){
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

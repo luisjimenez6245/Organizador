@@ -1,8 +1,17 @@
 package com.equipomiguelyluis.organizador.models;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.equipomiguelyluis.organizador.models.utils.Modelo;
 
+@Entity
 public class Classificacion extends  Modelo{
 
+    @PrimaryKey
+    public int id = 0;
+
+    @ColumnInfo(name = "name")
     public String nombre;
 
     public Classificacion(int id, String nombre){

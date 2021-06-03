@@ -1,16 +1,35 @@
 package com.equipomiguelyluis.organizador.models;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
+
 import com.equipomiguelyluis.organizador.models.utils.Modelo;
 
 import java.util.Date;
 import com.equipomiguelyluis.organizador.models.Classificacion;
 import  com.equipomiguelyluis.organizador.models.TipoNotificacion;
 
+@Entity
 public class Recordatorio extends  Modelo {
 
+
+    @PrimaryKey
+    public int id = 0;
+
+    @ColumnInfo(name = "name")
     public Date fecha;
+
+    @ColumnInfo(name = "name")
     public String contenido;
+
+    @ForeignKey()
     public Classificacion classificacion;
+
+    @ColumnInfo(name = "name")
     public Boolean revisada = false;
+
+    @ColumnInfo(name = "name")
     public TipoNotificacion tipo;
 
     public  Recordatorio(int id, Date fecha, String contenido, Classificacion classificacion){

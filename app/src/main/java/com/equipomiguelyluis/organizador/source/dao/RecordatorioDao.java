@@ -19,7 +19,7 @@ public interface RecordatorioDao {
     List<Recordatorio> getById(int id);
 
     @Insert
-    Recordatorio insert(Recordatorio item);
+    void insertAll(Recordatorio... items);
 
     @Delete
     void delete(Recordatorio item);

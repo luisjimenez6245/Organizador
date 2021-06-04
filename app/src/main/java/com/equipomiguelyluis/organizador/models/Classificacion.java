@@ -9,6 +9,7 @@ import com.equipomiguelyluis.organizador.models.utils.Modelo;
 public class Classificacion extends  Modelo{
 
     @PrimaryKey
+    @ColumnInfo(name = "id", index = true)
     public int id = 0;
 
     @ColumnInfo(name = "nombre")

@@ -1,0 +1,194 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "24294fae43c69b0bdf1a88784caaa1fb",
+    "entities": [
+      {
+        "tableName": "Recordatorio",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `fecha` INTEGER, `contenido` TEXT, `classificacionId` INTEGER NOT NULL, `revisada` INTEGER, `tipoId` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`classificacionId`) REFERENCES `Classificacion`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`tipoId`) REFERENCES `TipoNotificacion`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha",
+            "columnName": "fecha",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "contenido",
+            "columnName": "contenido",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "classificacionId",
+            "columnName": "classificacionId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "revisada",
+            "columnName": "revisada",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tipoId",
+            "columnName": "tipoId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_Recordatorio_id",
+            "unique": false,
+            "columnNames": [
+              "id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Recordatorio_id` ON `${TABLE_NAME}` (`id`)"
+          },
+          {
+            "name": "index_Recordatorio_classificacionId",
+            "unique": false,
+            "columnNames": [
+              "classificacionId"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Recordatorio_classificacionId` ON `${TABLE_NAME}` (`classificacionId`)"
+          },
+          {
+            "name": "index_Recordatorio_tipoId",
+            "unique": false,
+            "columnNames": [
+              "tipoId"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Recordatorio_tipoId` ON `${TABLE_NAME}` (`tipoId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Classificacion",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "classificacionId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "TipoNotificacion",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "tipoId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "TipoNotificacion",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `nombre` TEXT, `seMandaNotificacion` INTEGER NOT NULL, `minutos` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "seMandaNotificacion",
+            "columnName": "seMandaNotificacion",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "minutos",
+            "columnName": "minutos",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_TipoNotificacion_id",
+            "unique": false,
+            "columnNames": [
+              "id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_TipoNotificacion_id` ON `${TABLE_NAME}` (`id`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Classificacion",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `nombre` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_Classificacion_id",
+            "unique": false,
+            "columnNames": [
+              "id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Classificacion_id` ON `${TABLE_NAME}` (`id`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '24294fae43c69b0bdf1a88784caaa1fb')"
+    ]
+  }
+}

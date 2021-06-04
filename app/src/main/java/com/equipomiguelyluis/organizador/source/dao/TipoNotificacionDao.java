@@ -18,7 +18,7 @@ public interface TipoNotificacionDao {
     List<TipoNotificacion> getById(int id);
 
     @Insert
-    TipoNotificacion insert(TipoNotificacion item);
+    void insertAll(TipoNotificacion... items);
 
     @Delete
     void delete(TipoNotificacion item);

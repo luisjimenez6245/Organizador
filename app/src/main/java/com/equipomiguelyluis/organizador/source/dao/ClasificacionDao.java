@@ -5,7 +5,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import com.equipomiguelyluis.organizador.models.Recordatorio;
+import com.equipomiguelyluis.organizador.models.Classificacion;
 
 import java.util.List;
 
@@ -13,14 +13,14 @@ import java.util.List;
 public interface ClasificacionDao{
 
     @Query("Select * from classificacion")
-    List<Recordatorio> getAll();
+    List<Classificacion> getAll();
 
     @Query("Select * from classificacion where id = :id")
-    List<Recordatorio> getById(int id);
+    List<Classificacion> getById(int id);
 
     @Insert
-    Recordatorio insert(Recordatorio item);
+    void insertAll(Classificacion... items);
 
     @Delete
-    void delete(Recordatorio item);
+    void delete(Classificacion item);
 }

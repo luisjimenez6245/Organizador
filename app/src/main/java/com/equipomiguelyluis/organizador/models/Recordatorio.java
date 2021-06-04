@@ -2,8 +2,11 @@ package com.equipomiguelyluis.organizador.models;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
+import com.equipomiguelyluis.organizador.models.utils.DateConverter;
 import com.equipomiguelyluis.organizador.models.utils.Modelo;
 
 import java.util.Date;
@@ -18,27 +21,31 @@ public class Recordatorio extends  Modelo {
 
 
     @PrimaryKey
+    @ColumnInfo(name = "id", index = true)
     public int id = 0;
 
     @ColumnInfo(name = "fecha")
+    @TypeConverters(DateConverter.class)
     public Date fecha;
 
     @ColumnInfo(name = "contenido")
     public String contenido;
 
 
-    @ColumnInfo(name = "classificacionId")
+    @ColumnInfo(name = "classificacionId", index = true)
     public int classificacionId;
 
+    @Ignore
     public Classificacion classificacion;
 
     @ColumnInfo(name = "revisada")
     public Boolean revisada = false;
 
 
-    @ColumnInfo(name = "tipoId")
+    @ColumnInfo(name = "tipoId", index = true)
     public int tipoId;
 
+    @Ignore
     public TipoNotificacion tipo;
 
 

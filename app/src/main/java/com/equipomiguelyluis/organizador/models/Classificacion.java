@@ -11,7 +11,7 @@ public class Classificacion extends  Modelo{
     @PrimaryKey
     public int id = 0;
 
-    @ColumnInfo(name = "name")
+    @ColumnInfo(name = "nombre")
     public String nombre;
 
     public Classificacion(int id, String nombre){

@@ -11,16 +11,19 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.equipomiguelyluis.organizador.source.Source;
 import com.equipomiguelyluis.organizador.views.ClasificacionForm;
 import com.equipomiguelyluis.organizador.views.RecordatorioForm;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Source.createDatabase(getApplicationContext());
     }
 
 

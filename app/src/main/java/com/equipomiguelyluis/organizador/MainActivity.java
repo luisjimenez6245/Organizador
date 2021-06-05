@@ -47,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
                 toast = Toast.makeText(this, "Crear Recordatorio", Toast.LENGTH_SHORT);
                 intent = new Intent(this, RecordatorioForm.class);
                 break;
+            case R.id.view_clasificaciones:
+                intent = new Intent(this, ClasificacionActivity.class);
+                break;
         }
         if(toast != null){
             toast.show();

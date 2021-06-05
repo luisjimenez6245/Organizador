@@ -74,10 +74,12 @@ public class RecordatorioFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
             List<Recordatorio> list = new ArrayList<>();
+            RecordatorioRecyclerViewAdapter recycler = new RecordatorioRecyclerViewAdapter(list);
             new  RecordatorioView().getAll(list1 -> {
                 list.addAll(list1);
+                recycler.notifyDataSetChanged();
             });
-            recyclerView.setAdapter(new RecordatorioRecyclerViewAdapter(list));
+            recyclerView.setAdapter(recycler);
         }
         return view;
     }

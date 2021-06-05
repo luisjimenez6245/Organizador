@@ -72,13 +72,16 @@ public class ClasificacionFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
             List<Classificacion> list = new ArrayList<>();
+            ClasificacionRecyclerViewAdapter recycler = new ClasificacionRecyclerViewAdapter(list);
             new ClasificacionView().getAll(new com.equipomiguelyluis.organizador.source.views.View.getListCallback() {
                 @Override
                 public void onGetList(List list) {
                     list.addAll(list);
+                    System.out.println(list.size());
+                    recycler.notifyDataSetChanged();
                 }
             });
-            recyclerView.setAdapter(new ClasificacionRecyclerViewAdapter(list));
+            recyclerView.setAdapter(recycler);
         }
         return view;
     }

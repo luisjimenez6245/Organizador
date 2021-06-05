@@ -25,16 +25,17 @@ public class ClasificacionForm extends AppCompatActivity {
     public void createForm(View view){
         TextView nombre =  (TextView) findViewById(R.id.classificacionName);
         String val = nombre.getText().toString();
-        if(val == null || !val.equals("")){
-             Toast.makeText(this, "Clasificacion no valida", Toast.LENGTH_SHORT).show();
+        System.out.println(val);
+        if(val == null || val.equals("")){
+            Toast.makeText(this, "Clasificacion no valida", Toast.LENGTH_SHORT).show();
         }
         else{
             Classificacion cal = new Classificacion(val);
+            System.out.println(val);
             new ClasificacionView().insert(new com.equipomiguelyluis.organizador.source.views.View.insertCallback() {
                 @Override
                 public Object onSave(Object[] models) {
                     finish();
-                    System.out.println("hola");
                     return null;
                 }
             }, cal);

@@ -1,0 +1,15 @@
+package com.equipomiguelyluis.organizador;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+public class ClasificacionActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_clasificacion);
+        setTitle("Clasificaciones");
+    }
+}

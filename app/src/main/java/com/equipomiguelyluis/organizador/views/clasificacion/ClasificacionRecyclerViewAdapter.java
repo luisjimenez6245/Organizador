@@ -38,6 +38,7 @@ public class ClasificacionRecyclerViewAdapter extends RecyclerView.Adapter<Clasi
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
+        System.out.println(position);
         holder.mContenidoView.setText(mValues.get(position).nombre);
     }
 

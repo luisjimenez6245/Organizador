@@ -14,7 +14,13 @@ import android.view.ViewGroup;
 
 import com.equipomiguelyluis.organizador.R;
 
+import com.equipomiguelyluis.organizador.models.Recordatorio;
 import com.equipomiguelyluis.organizador.models.dummy.DummyContent;
+import com.equipomiguelyluis.organizador.source.Source;
+import com.equipomiguelyluis.organizador.source.views.RecordatorioView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -67,7 +73,11 @@ public class RecordatorioFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new RecordatorioRecyclerViewAdapter(DummyContent.ITEMS));
+            List<Recordatorio> list = new ArrayList<>();
+            new  RecordatorioView().getAll(list1 -> {
+                list.addAll(list1);
+            });
+            recyclerView.setAdapter(new RecordatorioRecyclerViewAdapter(list));
         }
         return view;
     }

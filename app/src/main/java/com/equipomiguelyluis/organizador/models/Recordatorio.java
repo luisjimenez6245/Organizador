@@ -20,7 +20,7 @@ import  com.equipomiguelyluis.organizador.models.TipoNotificacion;
 public class Recordatorio extends  Modelo {
 
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id", index = true)
     public int id = 0;
 

@@ -12,7 +12,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.equipomiguelyluis.organizador.R;
+import com.equipomiguelyluis.organizador.models.Classificacion;
 import com.equipomiguelyluis.organizador.models.dummy.DummyContent;
+import com.equipomiguelyluis.organizador.source.Source;
+import com.equipomiguelyluis.organizador.source.views.ClasificacionView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -65,7 +71,14 @@ public class ClasificacionFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new ClasificacionRecyclerViewAdapter(DummyContent.ITEMS_CLASSIFICACION));
+            List<Classificacion> list = new ArrayList<>();
+            new ClasificacionView().getAll(new com.equipomiguelyluis.organizador.source.views.View.getListCallback() {
+                @Override
+                public void onGetList(List list) {
+                    list.addAll(list);
+                }
+            });
+            recyclerView.setAdapter(new ClasificacionRecyclerViewAdapter(list));
         }
         return view;
     }

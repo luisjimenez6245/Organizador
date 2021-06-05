@@ -9,7 +9,7 @@ import com.equipomiguelyluis.organizador.models.utils.Modelo;
 @Entity
 public class TipoNotificacion extends  Modelo{
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id", index = true)
     public int id = 0;
 
@@ -22,8 +22,7 @@ public class TipoNotificacion extends  Modelo{
     @ColumnInfo(name = "minutos")
     public int minutos = 0;
 
-    public TipoNotificacion(int id, String nombre, boolean seMandaNotificacion, int minutos){
-        this.id = id;
+    public TipoNotificacion( String nombre, boolean seMandaNotificacion, int minutos){
         this.nombre = nombre;
         this.seMandaNotificacion = seMandaNotificacion;
         this.minutos = minutos;

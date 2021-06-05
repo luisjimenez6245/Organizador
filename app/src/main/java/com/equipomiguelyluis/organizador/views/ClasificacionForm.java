@@ -8,6 +8,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.equipomiguelyluis.organizador.R;
+import com.equipomiguelyluis.organizador.models.Classificacion;
+import com.equipomiguelyluis.organizador.source.views.ClasificacionView;
+
+import static com.equipomiguelyluis.organizador.source.Source.dbInstance;
 
 public class ClasificacionForm extends AppCompatActivity {
 
@@ -25,6 +29,15 @@ public class ClasificacionForm extends AppCompatActivity {
              Toast.makeText(this, "Clasificacion no valida", Toast.LENGTH_SHORT).show();
         }
         else{
+            Classificacion cal = new Classificacion(val);
+            new ClasificacionView().insert(new com.equipomiguelyluis.organizador.source.views.View.insertCallback() {
+                @Override
+                public Object onSave(Object[] models) {
+                    finish();
+                    System.out.println("hola");
+                    return null;
+                }
+            }, cal);
 
         }
     }

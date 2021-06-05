@@ -37,13 +37,13 @@ public class DummyContent {
     private static final int COUNT = 10;
 
     static {
-        ITEMS_CLASSIFICACION.add(new Classificacion(1, "Personal"));
-        ITEMS_CLASSIFICACION.add(new Classificacion(2, "Trabajo"));
-        ITEMS_CLASSIFICACION.add(new Classificacion(3, "Familia"));
+        ITEMS_CLASSIFICACION.add(new Classificacion ("Personal"));
+        ITEMS_CLASSIFICACION.add(new Classificacion( "Trabajo"));
+        ITEMS_CLASSIFICACION.add(new Classificacion( "Familia"));
 
-        ITEMS_TIPO_NOTIFICACION.add(new TipoNotificacion(1, "Un día antes", true, 1440));
-        ITEMS_TIPO_NOTIFICACION.add(new TipoNotificacion(1, "10 minutos antes", true, 10));
-        ITEMS_TIPO_NOTIFICACION.add(new TipoNotificacion(1, "Sin recordatorio", false, 0));
+        ITEMS_TIPO_NOTIFICACION.add(new TipoNotificacion( "Un día antes", true, 1440));
+        ITEMS_TIPO_NOTIFICACION.add(new TipoNotificacion( "10 minutos antes", true, 10));
+        ITEMS_TIPO_NOTIFICACION.add(new TipoNotificacion( "Sin recordatorio", false, 0));
 
 
         for (int i = 1; i <= COUNT; i++) {
@@ -58,6 +58,26 @@ public class DummyContent {
                     ));
 
         }
+    }
+
+    public static TipoNotificacion[] itemsTipoNotificacionList(){
+        TipoNotificacion[] res = {
+                new TipoNotificacion("Un día antes", true, 1440),
+                new TipoNotificacion("10 minutos antes", true, 10),
+                new TipoNotificacion("Sin recordatorio", false, 0),
+        };
+        return res;
+    }
+
+    public static Classificacion[] itemsClasificacionList(){
+        Classificacion[] res = {
+                new Classificacion("Personal"),
+                new Classificacion("Trabajo"),
+                new Classificacion("Familia"),
+                new Classificacion("Otro"),
+
+        };
+        return  res;
     }
 
     private static void addRecordatorio(Recordatorio item) {

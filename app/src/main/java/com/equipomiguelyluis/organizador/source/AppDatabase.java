@@ -11,7 +11,7 @@ import com.equipomiguelyluis.organizador.source.dao.ClasificacionDao;
 import com.equipomiguelyluis.organizador.source.dao.TipoNotificacionDao;
 import com.equipomiguelyluis.organizador.source.dao.RecordatorioDao;
 
-@Database(entities = {Recordatorio.class, TipoNotificacion.class, Classificacion.class}, version = 1)
+@Database(entities = {Recordatorio.class, TipoNotificacion.class, Classificacion.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract ClasificacionDao clasificacionDao();
     public abstract RecordatorioDao recordatorioDao();

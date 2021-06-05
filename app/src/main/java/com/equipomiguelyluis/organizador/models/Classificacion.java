@@ -8,15 +8,14 @@ import com.equipomiguelyluis.organizador.models.utils.Modelo;
 @Entity
 public class Classificacion extends  Modelo{
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id", index = true)
     public int id = 0;
 
     @ColumnInfo(name = "nombre")
     public String nombre;
 
-    public Classificacion(int id, String nombre){
-        this.id = id;
+    public Classificacion(String nombre){
         this.nombre = nombre;
     }
 

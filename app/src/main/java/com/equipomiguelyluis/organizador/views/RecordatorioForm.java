@@ -16,4 +16,7 @@ public class RecordatorioForm extends AppCompatActivity {
         setContentView(R.layout.activity_recordatorio_form);
         setTitle("Nuevo Recordatorio");
     }
+
+
+
 }
